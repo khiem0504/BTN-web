@@ -1,0 +1,123 @@
+/* =========================================
+   HOME.CSS - DÀNH RIÊNG CHO TRANG CHỦ
+   ========================================= */
+
+/* 1. HIỆU ỨNG XUẤT HIỆN (FADE-IN) */
+/* Trạng thái ban đầu: ẩn và đẩy xuống dưới một chút */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+    will-change: opacity, transform;
+}
+
+/* Trạng thái khi JS thêm class 'appear' vào lúc cuộn chuột đến */
+.fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 2. HERO SECTION (PHẦN ĐẦU TRANG) */
+.hero-section {
+    padding: 80px 0;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.hero-section h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Chữ tự co giãn theo màn hình */
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    color: var(--text-main);
+}
+
+.hero-section p {
+    font-size: 1.1rem;
+    color: var(--text-sub);
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+/* 3. TỐI ƯU KHUNG VIDEO */
+.video-container {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000; /* Nền đen để video không bị lộ viền trắng khi chưa load xong */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    border: 1px solid var(--border);
+}
+
+.video-container video {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* 4. CARD TIN TỨC & SẢN PHẨM */
+.card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--text-main);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+}
+
+/* 5. NEWSLETTER BOX (Ô ĐĂNG KÝ NHẬN TIN) */
+.newsletter-box {
+    background-color: var(--bg-light);
+    padding: 60px 40px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid var(--border);
+}
+
+.newsletter-box h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.newsletter-box form {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.newsletter-box input {
+    padding: 12px 20px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    width: 100%;
+    max-width: 350px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.newsletter-box input:focus {
+    border-color: var(--text-main);
+}
+
+/* 6. RESPONSIVE (CHO ĐIỆN THOẠI) */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 50px 0;
+    }
+    
+    .newsletter-box form {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .newsletter-box input {
+        max-width: 100%;
+    }
+}

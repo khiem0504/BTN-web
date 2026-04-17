@@ -1,0 +1,146 @@
+/* --- BIẾN HỆ THỐNG --- */
+:root {
+    --primary: #007bff;      /* Màu xanh thương hiệu */
+    --text-main: #1a1a1a;   /* Đen xám cho nội dung chính */
+    --text-sub: #666666;    /* Xám cho nội dung phụ */
+    --bg-white: #ffffff;    /* Trắng tuyệt đối */
+    --bg-light: #fcfcfc;    /* Xám cực nhẹ để chia khối */
+    --border: #eeeeee;      /* Viền mảnh */
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* --- RESET CƠ BẢN --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--bg-white);
+    color: var(--text-main);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+/* --- NAVIGATION --- */
+nav {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px); /* Hiệu ứng kính mờ cho MacBook */
+    padding: 1.2rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border);
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--text-main);
+    text-decoration: none;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    margin-left: 30px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: var(--transition);
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary);
+}
+
+/* --- NÚT BẤM (BUTTONS) --- */
+.btn {
+    padding: 12px 30px;
+    border-radius: 4px; /* Bo góc nhẹ, hiện đại */
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-block;
+    border: none;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--text-main);
+    color: var(--bg-white);
+}
+
+.btn-primary:hover {
+    background: var(--primary);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--text-main);
+    color: var(--text-main);
+}
+
+.btn-outline:hover {
+    background: var(--text-main);
+    color: var(--bg-white);
+}
+
+/* --- FOOTER --- */
+footer {
+    padding: 80px 0 30px;
+    background: var(--bg-white);
+    border-top: 1px solid var(--border);
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.footer-column h3 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.footer-column p, .footer-column a {
+    color: var(--text-sub);
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: #999;
+}

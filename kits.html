@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bộ Sưu Tập Áo Đấu - Elite Football Kit</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/shared.css">
+    <style>
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+            padding: 40px 0;
+        }
+        .product-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: #f9f9f9;
+        }
+        .product-info {
+            padding: 15px;
+            flex-grow: 1;
+            text-align: center;
+        }
+        .product-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            height: 45px;
+            overflow: hidden;
+        }
+        .product-price {
+            color: #d9534f;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        .category-filter {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">ELITE FOOTBALL KIT</div>
+        <div class="nav-links" id="navLinks">
+            <a href="home.html">Trang chủ</a>
+            <a href="about.html">Về chúng tôi</a>
+            <a href="kits.html" class="active">Bộ sưu tập áo đấu</a> 
+            <a href="news.html">Tin thể thao</a>
+            <a href="contact.html">Liên hệ</a>
+            <a href="cart.html">Giỏ hàng <span id="cart-badge">0</span></a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </nav>
+
+    <div class="container">
+        <header style="text-align: center; padding: 50px 0;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 10px;">BỘ SƯU TẬP 2026</h1>
+            <p style="color: #666;">Những mẫu áo đấu mới nhất từ các giải đấu hàng đầu châu Âu</p>
+        </header>
+
+        <div class="category-filter">
+            <button class="btn" style="background: #eee; color: #333;">Tất cả</button>
+            <button class="btn" style="background: #eee; color: #333;">Ngoại hạng Anh</button>
+            <button class="btn" style="background: #eee; color: #333;">La Liga</button>
+            <button class="btn" style="background: #eee; color: #333;">Bundesliga</button>
+        </div>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="images/mu-home.jpg" alt="MU Home" class="product-image">
+                <div class="product-info">
+                    <div class="product-name">Áo đấu Manchester United Sân Nhà 2026</div>
+                    <div class="product-price">850.000đ</div>
+                    <button class="btn" style="width: 100%;" onclick="addToCart('MU Home 2026', 850000)">Thêm vào giỏ</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="images/real-home.jpg" alt="Real Madrid Home" class="product-image">
+                <div class="product-info">
+                    <div class="product-name">Áo đấu Real Madrid Sân Nhà 2026</div>
+                    <div class="product-price">950.000đ</div>
+                    <button class="btn" style="width: 100%;" onclick="addToCart('Real Madrid Home', 950000)">Thêm vào giỏ</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="images/mancity-home.jpg" alt="Man City Home" class="product-image">
+                <div class="product-info">
+                    <div class="product-name">Áo đấu Manchester City Sân Nhà 2026</div>
+                    <div class="product-price">890.000đ</div>
+                    <button class="btn" style="width: 100%;" onclick="addToCart('Man City Home', 890000)">Thêm vào giỏ</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="images/arsenal-home.jpg" alt="Arsenal Home" class="product-image">
+                <div class="product-info">
+                    <div class="product-name">Áo đấu Arsenal Sân Nhà 2026</div>
+                    <div class="product-price">850.000đ</div>
+                    <button class="btn" style="width: 100%;" onclick="addToCart('Arsenal Home', 850000)">Thêm vào giỏ</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="images/liverpool-home.jpg" alt="Liverpool Home" class="product-image">
+                <div class="product-info">
+                    <div class="product-name">Áo đấu Liverpool Sân Nhà 2026</div>
+                    <div class="product-price">850.000đ</div>
+                    <button class="btn" style="width: 100%;" onclick="addToCart('Liverpool Home', 850000)">Thêm vào giỏ</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="images/barca-home.jpg" alt="Barca Home" class="product-image">
+                <div class="product-info">
+                    <div class="product-name">Áo đấu Barcelona Sân Nhà 2026</div>
+                    <div class="product-price">920.000đ</div>
+                    <button class="btn" style="width: 100%;" onclick="addToCart('Barcelona Home', 920000)">Thêm vào giỏ</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="images/bayern-home.jpg" alt="Bayern Home" class="product-image">
+                <div class="product-info">
+                    <div class="product-name">Áo đấu Bayern Munich Sân Nhà 2026</div>
+                    <div class="product-price">820.000đ</div>
+                    <button class="btn" style="width: 100%;" onclick="addToCart('Bayern Home', 820000)">Thêm vào giỏ</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="images/chelsea-home.jpg" alt="Chelsea Home" class="product-image">
+                <div class="product-info">
+                    <div class="product-name">Áo đấu Chelsea Sân Nhà 2026</div>
+                    <div class="product-price">850.000đ</div>
+                    <button class="btn" style="width: 100%;" onclick="addToCart('Chelsea Home', 850000)">Thêm vào giỏ</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="images/psg-home.jpg" alt="PSG Home" class="product-image">
+                <div class="product-info">
+                    <div class="product-name">Áo đấu PSG Sân Nhà 2026</div>
+                    <div class="product-price">900.000đ</div>
+                    <button class="btn" style="width: 100%;" onclick="addToCart('PSG Home', 900000)">Thêm vào giỏ</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="images/vn-home.jpg" alt="Vietnam Home" class="product-image">
+                <div class="product-info">
+                    <div class="product-name">Áo đấu Đội tuyển Việt Nam 2026</div>
+                    <div class="product-price">650.000đ</div>
+                    <button class="btn" style="width: 100%;" onclick="addToCart('Vietnam Home', 650000)">Thêm vào giỏ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/shared.js"></script>
+</body>
+</html>

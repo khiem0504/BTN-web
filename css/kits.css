@@ -1,0 +1,38 @@
+.kits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 30px;
+    padding: 40px 0;
+}
+
+.kit-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border);
+    padding: 15px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.kit-card:hover {
+    border-color: var(--primary);
+}
+
+.kit-card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.kit-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.kit-price {
+    color: #d9534f;
+    font-weight: 700;
+    margin-bottom: 15px;
+}

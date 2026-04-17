@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán - Elite Football Kit</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/shared.css">
+</head>
+<body>
+    <div class="container" style="padding: 60px 0;">
+        <h1 style="margin-bottom: 40px;">Thông tin thanh toán</h1>
+        <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px;">
+            <div style="background: #f9f9f9; padding: 30px; border-radius: 12px;">
+                <h3 style="margin-bottom: 20px;">1. Địa chỉ nhận hàng</h3>
+                <form style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <input type="text" placeholder="Họ và tên" required style="grid-column: span 2; padding: 12px; border: 1px solid #ddd; border-radius: 6px;">
+                    <input type="email" placeholder="Email" required style="padding: 12px; border: 1px solid #ddd; border-radius: 6px;">
+                    <input type="tel" placeholder="Số điện thoại" required style="padding: 12px; border: 1px solid #ddd; border-radius: 6px;">
+                    <input type="text" placeholder="Địa chỉ chi tiết" required style="grid-column: span 2; padding: 12px; border: 1px solid #ddd; border-radius: 6px;">
+                </form>
+            </div>
+
+            <div style="border: 1px solid #eee; padding: 30px; border-radius: 12px;">
+                <h3 style="margin-bottom: 20px;">2. Đơn hàng của bạn</h3>
+                <div id="checkout-summary">
+                    </div>
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+                <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 1.2rem;">
+                    <span>Tổng tiền:</span>
+                    <span id="checkout-total" style="color: #d9534f;">0đ</span>
+                </div>
+                <button class="btn" style="width: 100%; margin-top: 30px; padding: 15px;">XÁC NHẬN ĐẶT HÀNG</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
