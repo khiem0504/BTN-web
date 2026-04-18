@@ -20,7 +20,9 @@
                 <thead>
                     <tr>
                         <th>Sản phẩm</th>
-                        <th>Giá</th>
+                        <th>Số lượng</th>
+                        <th>Đơn giá</th>
+                        <th>Thành tiền</th>
                         <th>Hành động</th>
                     </tr>
                 </thead>
@@ -44,12 +46,20 @@
             itemsContainer.innerHTML = '';
             let total = 0;
             cart.forEach((item, index) => {
-                total += item.price;
+                const itemTotal = item.price * item.qty;
+                total += itemTotal;
                 itemsContainer.innerHTML += `
                     <tr>
                         <td>${item.name}</td>
+                        <td>${item.qty}</td>
                         <td>${item.price.toLocaleString()}đ</td>
-                        <td><button onclick="removeItem(${index})" style="color: red; border: none; background: none; cursor: pointer;">Xóa</button></td>
+                        <td>${itemTotal.toLocaleString()}đ</td>
+                        <td>
+                            <button onclick="removeItem(${index})"
+                             style="color:red; border:none; background:none; cursor:pointer;">
+                                Xóa
+                            </button>
+                        </td>
                     </tr>
                 `;
             });
