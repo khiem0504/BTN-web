@@ -18,14 +18,29 @@
                 </div>
                 <div class="form-group">
                     <label style="display: block; margin-bottom: 8px; font-weight: 500;">Mật khẩu</label>
-                    <input type="password" placeholder="********" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px;">
+                    <input id="password" type="password" placeholder="********" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px;">
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <input type="checkbox" id="showPassword">
+                    <label for="showPassword" style="font-size: 0.9rem;">Hiển thị mật khẩu</label>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <a href="forgot-password.html" style="color: #007bff;">Quên mật khẩu?</a>
                 </div>
                 <button type="submit" class="btn" style="width: 100%; padding: 15px;">ĐĂNG NHẬP</button>
-                <p style="text-align: center; font-size: 0.9rem;">Chưa có tài khoản? <a href="#" style="color: #007bff;">Đăng ký ngay</a></p>
+                <p style="text-align: center; font-size: 0.9rem;">Chưa có tài khoản? <a href="register.html" style="color: #007bff;">Đăng ký ngay</a></p>
             </form>
         </div>
     </div>
+    <script>
+        // Toggle hiển thị mật khẩu
+        const checkbox = document.getElementById("showPassword");
+        const password = document.getElementById("password");
 
+        checkbox.addEventListener("change", () => {
+            password.type = checkbox.checked ? "text" : "password";
+        });
+    </script>
     <script src="js/shared.js"></script>
 </body>
 </html>

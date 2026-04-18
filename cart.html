@@ -30,11 +30,10 @@
             
             <div class="total-box">
                 <h3>Tổng cộng: <span id="total-price" style="color: #d9534f;">0đ</span></h3>
-                <button class="btn" style="margin-top: 20px; padding: 15px 40px;">TIẾN HÀNH THANH TOÁN</button>
+                <button class="btn" onclick="toCheckout()" style="margin-top: 20px; padding: 15px 40px;">TIẾN HÀNH THANH TOÁN</button>
             </div>
         </div>
     </div>
-
     <script src="js/shared.js"></script>
     <script>
         // Hiển thị sản phẩm từ localStorage
@@ -42,10 +41,8 @@
             const itemsContainer = document.getElementById('cart-items');
             const totalElement = document.getElementById('total-price');
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            
             itemsContainer.innerHTML = '';
             let total = 0;
-
             cart.forEach((item, index) => {
                 total += item.price;
                 itemsContainer.innerHTML += `
@@ -59,7 +56,6 @@
 
             totalElement.innerText = total.toLocaleString() + 'đ';
         }
-
         function removeItem(index) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             cart.splice(index, 1);
@@ -67,7 +63,9 @@
             displayCart();
             updateCartBadge();
         }
-
+        function toCheckout() {
+            window.location.href = 'checkout.html';
+        }
         document.addEventListener('DOMContentLoaded', displayCart);
     </script>
 </body>
