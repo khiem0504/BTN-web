@@ -6,26 +6,153 @@
     <title>Tin tức thể thao - Elite Football Kit</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="css/shared.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; padding: 40px 0; }
-        .news-card { border-radius: 12px; overflow: hidden; border: 1px solid #eee; }
-        .news-card img { width: 100%; height: 200px; object-fit: cover; }
+        .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; padding: 40px 0; }
+        .news-card { 
+            border-radius: 12px; 
+            overflow: hidden; 
+            border: 1px solid #eee; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #fff;
+        }
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .news-card img { width: 100%; height: 220px; object-fit: cover; }
+        .news-content { padding: 25px; }
+        .news-tag { 
+            background: #007bff; 
+            color: #fff; 
+            padding: 4px 12px; 
+            border-radius: 20px; 
+            font-size: 0.7rem; 
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        footer p { margin-bottom: 10px; }
     </style>
 </head>
 <body>
+    <nav>
+        <div class="logo">
+            <a href="home.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+                <img src="images/logo.png" alt="Elite Football Kit Logo" style="height: 50px; width: auto; object-fit: contain;">
+                <span style="font-weight: 700; font-size: 1.2rem; letter-spacing: 0.5px;">ELITE FOOTBALL KIT</span>
+            </a>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="home.html">Trang chủ</a>
+            <a href="about.html">Về chúng tôi</a>
+            <a href="kits.html">Bộ sưu tập áo đấu</a> 
+            <a href="news.html" class="active">Tin thể thao</a>
+            <a href="contact.html">Liên hệ</a>
+            <a href="login.html">Đăng nhập</a>
+            <a href="cart.html">Giỏ hàng <span id="cart-badge"></span></a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </nav>
+
     <div class="container">
-        <h1 style="text-align: center; margin-top: 50px;">Tin tức & Sự kiện</h1>
+        <header style="text-align: center; margin-top: 60px; margin-bottom: 20px;">
+            <h1 style="font-weight: 700; font-size: 2.5rem; color: #222;">TIN TỨC & SỰ KIỆN</h1>
+            <p style="color: #666;">Cập nhật những xu hướng áo đấu và tin tức bóng đá mới nhất từ Elite Football Kit</p>
+        </header>
+
         <div class="news-grid">
+            
             <div class="news-card">
-                <img src="images/news1.jpg" alt="News">
-                <div style="padding: 20px;">
-                    <small style="color: #888;">15/04/2026</small>
-                    <h3 style="margin: 10px 0;">Top 5 mẫu áo đấu đẹp nhất mùa giải 2026</h3>
-                    <p style="color: #666; font-size: 0.9rem;">Cùng Elite Kit điểm qua những thiết kế phá cách nhất năm nay...</p>
+                <img src="images/news1.jpg" alt="Top Kits">
+                <div class="news-content">
+                    <span class="news-tag">Xu hướng</span>
+                    <p style="color: #888; font-size: 0.85rem; margin-top: 10px;">15/04/2026</p>
+                    <h3 style="margin: 10px 0; color: #222; font-size: 1.2rem;">Top 5 mẫu áo đấu đẹp nhất mùa giải 2026</h3>
+                    <p style="color: #666; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">Cùng Elite Kit điểm qua những thiết kế phá cách và mang tính biểu tượng nhất của các ông lớn năm nay...</p>
                     <a href="#" style="color: #007bff; text-decoration: none; font-weight: 600;">Xem thêm →</a>
                 </div>
             </div>
+
+            <div class="news-card">
+                <img src="images/mu-news.jpg" alt="Manchester United">
+                <div class="news-content">
+                    <span class="news-tag">Sản phẩm mới</span>
+                    <p style="color: #888; font-size: 0.85rem; margin-top: 10px;">18/04/2026</p>
+                    <h3 style="margin: 10px 0; color: #222; font-size: 1.2rem;">Cận cảnh mẫu áo thứ 3 của Manchester United</h3>
+                    <p style="color: #666; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">Với gam màu xanh rêu độc đáo phối vàng đồng, đây hứa hẹn là mẫu áo "cháy hàng" nhất mùa hè này...</p>
+                    <a href="#" style="color: #007bff; text-decoration: none; font-weight: 600;">Xem thêm →</a>
+                </div>
             </div>
+
+            <div class="news-card">
+                <img src="images/news2.jpg" alt="Fabric Tech">
+                <div class="news-content">
+                    <span class="news-tag">Công nghệ</span>
+                    <p style="color: #888; font-size: 0.85rem; margin-top: 10px;">20/04/2026</p>
+                    <h3 style="margin: 10px 0; color: #222; font-size: 1.2rem;">Sự khác biệt giữa áo Player và áo Fan</h3>
+                    <p style="color: #666; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">Bạn băn khoăn không biết nên chọn bản thi đấu hay bản cổ động? Hãy cùng tìm hiểu về chất liệu và form dáng...</p>
+                    <a href="#" style="color: #007bff; text-decoration: none; font-weight: 600;">Xem thêm →</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="images/news3.jpg" alt="Real Madrid">
+                <div class="news-content">
+                    <span class="news-tag">Sự kiện</span>
+                    <p style="color: #888; font-size: 0.85rem; margin-top: 10px;">22/04/2026</p>
+                    <h3 style="margin: 10px 0; color: #222; font-size: 1.2rem;">Real Madrid kỷ niệm hành trình vĩ đại</h3>
+                    <p style="color: #666; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">Đội bóng hoàng gia Tây Ban Nha dự kiến sẽ ra mắt bộ áo đấu phiên bản giới hạn kỷ niệm 124 năm thành lập...</p>
+                    <a href="#" style="color: #007bff; text-decoration: none; font-weight: 600;">Xem thêm →</a>
+                </div>
+            </div>
+
+        </div>
     </div>
+
+    <footer style="margin-top: 60px;">
+        <div class="footer-container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; padding: 60px 5%; background: #fff; border-top: 1px solid #eee;">
+            <div class="footer-info" style="flex: 1.5; min-width: 280px;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 25px;">
+                    <img src="images/logo.png" alt="Logo" style="height: 45px; width: auto;">
+                    <span style="font-weight: 700; color: #007bff; font-size: 1.3rem; letter-spacing: 0.5px;">ELITE FOOTBALL KIT</span>
+                </div>
+                <p style="color: #666; font-size: 0.95rem; line-height: 1.8; max-width: 400px;">Tự hào là đơn vị cung cấp áo đấu uy tín hàng đầu cho các tín đồ túc cầu giáo. Chất lượng khẳng định đẳng cấp sân cỏ.</p>
+            </div>
+            
+            <div class="footer-column" style="flex: 1; min-width: 200px;">
+                <h3 style="margin-bottom: 25px; font-size: 1.1rem; color: #222;">Theo dõi chúng tôi</h3>
+                <div class="social-icons" style="display: flex; gap: 20px;">
+                    <a href="https://www.facebook.com/khiemphamdzlam?locale=vi_VN" target="_blank" title="Facebook" style="font-size: 26px; color: #1877F2;">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.facebook.com/khiemphamdzlam?locale=vi_VN" target="_blank" title="Instagram" style="font-size: 26px; color: #E4405F;">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/khiemphamdzlam?locale=vi_VN" target="_blank" title="TikTok" style="font-size: 26px; color: #000000;">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-column" style="flex: 1; min-width: 200px;">
+                <h3 style="margin-bottom: 25px; font-size: 1.1rem; color: #222;">Hỗ trợ khách hàng</h3>
+                <p style="color: #666; font-size: 0.9rem;"><i class="fas fa-phone" style="margin-right: 8px;"></i> Hotline: 1900 1234</p>
+                <p style="color: #666; font-size: 0.9rem;"><i class="fas fa-envelope" style="margin-right: 8px;"></i> Email: contact@elitekit.vn</p>
+                <p style="color: #666; font-size: 0.9rem;"><i class="fas fa-location-dot" style="margin-right: 8px;"></i> Số 1 Đại Cồ Việt, Hà Nội</p>
+            </div>
+        </div>
+        
+        <div class="copyright" style="text-align: center; padding: 25px; background: #fcfcfc; border-top: 1px solid #eee;">
+            <p style="color: #888; font-size: 0.85rem;">© 2026 Elite Football Kit. Chuyên cung cấp áo đấu</p>
+        </div>
+    </footer>
+
+    <script src="js/shared.js"></script>
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
