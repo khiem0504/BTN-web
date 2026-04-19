@@ -1,6 +1,3 @@
-// --- QUẢN LÝ GIỎ HÀNG (Sử dụng LocalStorage) ---
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
 // Hàm thêm sản phẩm vào giỏ
 function addToCart(name, price, qty = 1) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -13,7 +10,8 @@ function addToCart(name, price, qty = 1) {
         cart.push({ name, price, qty });
     }
 
-    localStorage.setItem("cart", JSON.stringify(cart));
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
     updateCartBadge();
 }
 

@@ -408,6 +408,7 @@
             <button class="btn btn-filter" data-filter="epl">Ngoại hạng Anh</button>
             <button class="btn btn-filter" data-filter="laliga">La Liga</button>
             <button class="btn btn-filter" data-filter="bundesliga">Bundesliga</button>
+            <button class="btn btn-filter" data-filter="other">Khác</button>
         </div>
 
         <div class="product-grid">
@@ -520,7 +521,7 @@
             <label>Số lượng:</label>
             <input type="number" id="product-qty" value="1" min="1" max="10" step="1" class="input" required>
             <small id="qty-error" style="color: red; display: none;">Xin hãy nhập số lượng hợp lý (1-10).</small>
-            <button class="btn" style="width:100%; margin-top:15px;" onclick="confirmAddToCart()">Thêm vào giỏ hàng</button>
+            <button class="btn btn-add" style="width:100%; margin-top:15px;" onclick="confirmAddToCart(this)"><span class="cart-icon"></span>🛒</span> Thêm vào giỏ hàng</button>
         </div>
     </div>
 
@@ -554,7 +555,34 @@
         function closeModal() {
             document.getElementById('productModal').style.display = 'none';
         }
-        function confirmAddToCart() {
+        function animateToCart(btn) {
+            const cartIcon = btn.querySelector(".cart-icon");
+
+            if (!cartIcon) return;
+
+            const rect = cartIcon.getBoundingClientRect();
+
+            const flying = document.createElement("div");
+            flying.innerText = "🛒";
+            flying.className = "flying-cart";
+
+            // vị trí bắt đầu (giữa button)
+            const btnRect = btn.getBoundingClientRect();
+            flying.style.left = btnRect.left + btnRect.width / 2 + "px";
+            flying.style.top = btnRect.top + btnRect.height / 2 + "px";
+
+            document.body.appendChild(flying);
+
+            requestAnimationFrame(() => {
+                flying.style.left = rect.left + rect.width / 2 + "px";
+                flying.style.top = rect.top + rect.height / 2 + "px";
+                flying.style.transform = "translate(-50%, -50%) scale(0.5)";
+                flying.style.opacity = "0";
+            });
+
+            setTimeout(() => flying.remove(), 600);
+        }
+        function confirmAddToCart(btn) {
             const size = document.getElementById('product-size').value;
             const qtyInput = document.getElementById("product-qty");
             const qtyError = document.getElementById("qty-error");
@@ -565,8 +593,11 @@
                 return;
             }
             addToCart(currentProduct.name +" - Size " + size ,currentProduct.price,qty);
-            alert("Sản phẩm đã được thêm vào giỏ hàng!");
-            closeModal();
+            animateToCart(btn);
+
+            setTimeout(() => {
+                closeModal();
+            }, 300);
         }
         const buttons = document.querySelectorAll(".btn-filter");
         const products = document.querySelectorAll(".product-card");
