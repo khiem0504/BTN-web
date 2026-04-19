@@ -46,13 +46,12 @@
             itemsContainer.innerHTML = '';
             let total = 0;
             cart.forEach((item, index) => {
-                const qty = item.qty || 1;
-                const itemTotal = item.price * qty;
+                const itemTotal = item.price * item.qty;
                 total += itemTotal;
                 itemsContainer.innerHTML += `
                     <tr>
                         <td>${item.name}</td>
-                        <td>${qty}</td>
+                        <td>${item.qty}</td>
                         <td>${item.price.toLocaleString()}đ</td>
                         <td>${itemTotal.toLocaleString()}đ</td>
                         <td>
@@ -77,10 +76,7 @@
         function toCheckout() {
             window.location.href = 'checkout.html';
         }
-        document.addEventListener('DOMContentLoaded', () => {
-            displayCart();
-            updateCartBadge();
-        });
+        document.addEventListener('DOMContentLoaded', displayCart);
     </script>
 </body>
 </html>
