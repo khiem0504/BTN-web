@@ -53,6 +53,4 @@ function toggleMenu() {
 }
 
 // Khởi tạo các tính năng khi trang web load xong
-document.addEventListener('DOMContentLoaded', () => {
-    updateCartBadge();
-});
+document.addEventListener("DOMContentLoaded", updateCartBadge);
