@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bộ Sưu Tập Áo Đấu - Elite Football Kit</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/shared.css">
     <style>
         .product-grid {
@@ -183,15 +184,13 @@
             </div>
         </div>
     </div>
+    
     <div id="productModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-
             <img id="modal-img" src="" style="width:100%; max-height:250px; object-fit:cover; border-radius:10px;">
-
             <h2 id="modal-name"></h2>
             <p id="modal-price" style="color:#d9534f; font-weight:bold;"></p>
-
             <label>Chọn size:</label>
             <select id="product-size" class="input">
                 <option value="S">S: 36-46kg</option>
@@ -200,13 +199,13 @@
                 <option value="XL">XL: 69-79kg</option>
                 <option value="XXL">2XL: 80-90kg</option>
             </select>
-
             <label>Số lượng:</label>
             <input type="number" id="product-qty" value="1" min="1" max="10" step="1" class="input" required>
             <small id="qty-error" style="color: red; display: none;">Xin hãy nhập số lượng hợp lý (1-10).</small>
             <button class="btn" style="width:100%; margin-top:15px;" onclick="confirmAddToCart()">Thêm vào giỏ hàng</button>
         </div>
     </div>
+
     <script>
         let currentProduct = {};
         const qtyInput = document.getElementById("product-qty");
@@ -214,7 +213,6 @@
 
         qtyInput.addEventListener("input", () => {
             let value = parseInt(qtyInput.value);
-
             if (isNaN(value) || value < 1) {
                 qtyError.innerText = "Số lượng phải >= 1";
                 qtyError.style.display = "block";
@@ -235,82 +233,77 @@
             document.getElementById("qty-error").style.display = "none";
             document.getElementById('productModal').style.display = 'block';
         }
-
         function closeModal() {
             document.getElementById('productModal').style.display = 'none';
         }
-
         function confirmAddToCart() {
             const size = document.getElementById('product-size').value;
             const qtyInput = document.getElementById("product-qty");
             const qtyError = document.getElementById("qty-error");
-
             let qty = parseInt(qtyInput.value);
-
             if (isNaN(qty) || qty < 1 || qty > 10) {
                 qtyError.innerText = "Xin hãy nhập số lượng hợp lý (1-10).";
                 qtyError.style.display = "block";
                 return;
             }
-
             addToCart(currentProduct.name +" - Size " + size ,currentProduct.price,qty);
             alert("Sản phẩm đã được thêm vào giỏ hàng!");
             closeModal();
         }
         const buttons = document.querySelectorAll(".btn-filter");
         const products = document.querySelectorAll(".product-card");
-
         buttons.forEach(btn => {
             btn.addEventListener("click", () => {
-
-            // remove active
-            buttons.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-
-            const filter = btn.getAttribute("data-filter");
-
-            products.forEach(product => {
-                const category = product.getAttribute("data-category");
-
-                if (filter === "all" || filter === category) {
-                    product.style.display = "flex";
-                } else {
-                    product.style.display = "none";
-                }
+                buttons.forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                const filter = btn.getAttribute("data-filter");
+                products.forEach(product => {
+                    const category = product.getAttribute("data-category");
+                    if (filter === "all" || filter === category) {
+                        product.style.display = "flex";
+                    } else {
+                        product.style.display = "none";
+                    }
+                });
             });
         });
-    });
     </script>
     <script src="js/shared.js"></script>
+
     <footer>
-        <div class="footer-container">
-            <div class="footer-logo">
-                <span style="font-weight: 700; color: #007bff;">ELITE FOOTBALL KIT</span>
+        <div class="footer-container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; padding: 60px 5%; background: #fff; border-top: 1px solid #eee;">
+            <div class="footer-info" style="flex: 1.5; min-width: 280px;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 25px;">
+                    <img src="images/logo.png" alt="Logo" style="height: 45px; width: auto;">
+                    <span style="font-weight: 700; color: #007bff; font-size: 1.3rem; letter-spacing: 0.5px;">ELITE FOOTBALL KIT</span>
+                </div>
+                <p style="color: #666; font-size: 0.95rem; line-height: 1.8; max-width: 400px;">Tự hào là đơn vị cung cấp áo đấu uy tín hàng đầu cho các tín đồ túc cầu giáo. Chất lượng khẳng định đẳng cấp sân cỏ.</p>
             </div>
-            <div class="footer-links">
-                <div class="footer-column">
-    <h3>Theo dõi chúng tôi</h3>
-    <div class="social-icons" style="display: flex; gap: 20px; margin-top: 10px;">
-        <a href="https://www.facebook.com/khiemphamdzlam?locale=vi_VN" target="_blank" title="Facebook" style="font-size: 24px; color: #1877F2;">
-            <i class="fab fa-facebook"></i>
-        </a>
-        <a href="https://www.facebook.com/khiemphamdzlam?locale=vi_VN" target="_blank" title="Instagram" style="font-size: 24px; color: #E4405F;">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.facebook.com/khiemphamdzlam?locale=vi_VN" target="_blank" title="TikTok" style="font-size: 24px; color: #000000;">
-            <i class="fab fa-tiktok"></i>
-        </a>
-    </div>
-</div>
-                <div class="footer-column">
-                    <h3>Hỗ trợ</h3>
-                    <p>Hotline: 1900 1234</p>
-                    <p>Địa chỉ: Số 1 Đại Cồ Việt, Hà Nội</p>
+            
+            <div class="footer-column">
+                <h3>Theo dõi chúng tôi</h3>
+                <div class="social-icons" style="display: flex; gap: 20px; margin-top: 15px;">
+                    <a href="https://www.facebook.com/khiemphamdzlam?locale=vi_VN" target="_blank" title="Facebook" style="font-size: 26px; color: #1877F2;">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.facebook.com/khiemphamdzlam?locale=vi_VN" target="_blank" title="Instagram" style="font-size: 26px; color: #E4405F;">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/khiemphamdzlam?locale=vi_VN" target="_blank" title="TikTok" style="font-size: 26px; color: #000000;">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
                 </div>
             </div>
+
+            <div class="footer-column" style="flex: 1; min-width: 200px;">
+                <h3 style="margin-bottom: 25px; font-size: 1.1rem; color: #222;">Hỗ trợ khách hàng</h3>
+                <p style="color: #666; margin-bottom: 10px; font-size: 0.9rem;">Hotline: 1900 1234</p>
+                <p style="color: #666; margin-bottom: 10px; font-size: 0.9rem;">Email: contact@elitekit.vn</p>
+                <p style="color: #666; font-size: 0.9rem;">Số 1 Đại Cồ Việt, Hà Nội</p>
+            </div>
         </div>
-        <div class="copyright">
-            <p>© 2026 Elite Football Kit. Chuyên áo đấu cao cấp.</p>
+        <div class="copyright" style="text-align: center; padding: 25px; background: #fcfcfc; border-top: 1px solid #eee;">
+            <p style="color: #888; font-size: 0.85rem;">© 2026 Elite Football Kit. Chuyên cung cấp áo đấu </p>
         </div>
     </footer>
 </body>
