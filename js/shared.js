@@ -2,28 +2,28 @@
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 // Hàm thêm sản phẩm vào giỏ
-function addToCart(name, price) {
-    const product = { name, price };
-    cart.push(product);
-    
-    // Lưu vào bộ nhớ trình duyệt
-    localStorage.setItem('cart', JSON.stringify(cart));
-    
-    // Cập nhật số hiển thị trên icon giỏ hàng
+function addToCart(name, price, qty = 1) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const existing = cart.find(item => item.name === name);
+
+    if (existing) {
+        existing.qty += qty;
+    } else {
+        cart.push({ name, price, qty });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
     updateCartBadge();
-    
-    // Hiển thị thông báo nhẹ nhàng (thay vì alert thô sơ)
-    console.log(`Đã thêm ${name} vào giỏ hàng`);
-    alert(`Đã thêm ${name} vào giỏ hàng thành công!`);
 }
 
 // Hàm cập nhật số lượng hiển thị trên Badge giỏ hàng
 function updateCartBadge() {
     const badge = document.getElementById('cart-badge');
     if (badge) {
-        badge.innerText = cart.length;
-        
-        // Hiệu ứng nháy nhẹ khi số thay đổi
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+        badge.innerText = totalQty;
         badge.style.transform = "scale(1.2)";
         setTimeout(() => {
             badge.style.transform = "scale(1)";
