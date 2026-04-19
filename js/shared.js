@@ -1,6 +1,3 @@
-// --- QUẢN LÝ GIỎ HÀNG (Sử dụng LocalStorage) ---
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
 // Hàm thêm sản phẩm vào giỏ
 function addToCart(name, price, qty = 1) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -14,7 +11,7 @@ function addToCart(name, price, qty = 1) {
     }
 
     // Lưu vào bộ nhớ trình duyệt
-    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem("cart", JSON.stringify(cart));
     
     // Cập nhật số hiển thị trên icon giỏ hàng
     updateCartBadge();
@@ -26,11 +23,10 @@ function addToCart(name, price, qty = 1) {
 
 // Hàm cập nhật số lượng hiển thị trên Badge giỏ hàng
 function updateCartBadge() {
-    const badge = document.getElementById('cart-badge');
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+    const badge = document.getElementById("cart-badge");
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const totalQty = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
     if (badge) {
-    
         badge.innerText = totalQty;
         badge.style.transform = "scale(1.2)";
         setTimeout(() => {
@@ -38,7 +34,6 @@ function updateCartBadge() {
         }, 200);
     }
 }
-
 // --- MENU MOBILE ---
 function toggleMenu() {
     const navLinks = document.getElementById('navLinks');
