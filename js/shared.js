@@ -10,24 +10,17 @@ function addToCart(name, price, qty = 1) {
         cart.push({ name, price, qty });
     }
 
-    // Lưu vào bộ nhớ trình duyệt
-    localStorage.setItem('cart', JSON.stringify(cart));
-    
-    // Cập nhật số hiển thị trên icon giỏ hàng
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
     updateCartBadge();
-    
-    // Hiển thị thông báo nhẹ nhàng (thay vì alert thô sơ)
-    console.log(`Đã thêm ${name} vào giỏ hàng`);
-    alert(`Đã thêm ${name} vào giỏ hàng thành công!`);
 }
 
 // Hàm cập nhật số lượng hiển thị trên Badge giỏ hàng
 function updateCartBadge() {
     const badge = document.getElementById('cart-badge');
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
     if (badge) {
-    
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
         badge.innerText = totalQty;
         badge.style.transform = "scale(1.2)";
         setTimeout(() => {
