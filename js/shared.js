@@ -27,9 +27,10 @@ function addToCart(name, price, qty = 1) {
 // Hàm cập nhật số lượng hiển thị trên Badge giỏ hàng
 function updateCartBadge() {
     const badge = document.getElementById('cart-badge');
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
     if (badge) {
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+    
         badge.innerText = totalQty;
         badge.style.transform = "scale(1.2)";
         setTimeout(() => {
