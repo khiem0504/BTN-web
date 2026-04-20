@@ -71,6 +71,13 @@ nav .container {
 .nav-links a:hover, .nav-links a.active {
     color: var(--primary);
 }
+/* Ẩn hamburger mặc định trên Desktop */
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-main);
+}
 
 /* --- NÚT BẤM (BUTTONS) --- */
 .btn {
@@ -261,4 +268,38 @@ footer {
     border-top: 1px solid var(--border);
     font-size: 0.8rem;
     color: #999;
+}
+/* --- RESPONSIVE CHO MOBILE (MAX 768px) --- */
+@media (max-width: 768px) {
+    /* Hiện nút hamburger */
+    .hamburger {
+        display: block;
+    }
+
+    /* Biến menu chính thành menu dọc và ẩn đi */
+    .nav-links {
+        display: none; /* Ẩn mặc định trên mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Đẩy xuống dưới thanh nav */
+        left: 0;
+        width: 100%;
+        background: var(--bg-white);
+        padding: 20px;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+    }
+
+    /* Hiển thị menu khi có class .active (do JS kích hoạt) */
+    .nav-links.active {
+        display: flex;
+    }
+
+    /* Căn chỉnh lại các link trong menu mobile */
+    .nav-links a {
+        margin: 10px 0;
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
 }

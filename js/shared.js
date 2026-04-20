@@ -30,19 +30,8 @@ function updateCartBadge() {
 // --- MENU MOBILE ---
 function toggleMenu() {
     const navLinks = document.getElementById('navLinks');
-    if (navLinks.style.display === 'flex') {
-        navLinks.style.display = 'none';
-    } else {
-        navLinks.style.display = 'flex';
-        navLinks.style.flexDirection = 'column';
-        navLinks.style.position = 'absolute';
-        navLinks.style.top = '70px';
-        navLinks.style.left = '0';
-        navLinks.style.width = '100%';
-        navLinks.style.background = '#fff';
-        navLinks.style.padding = '20px';
-        navLinks.style.borderBottom = '1fr solid #eee';
-    }
+    // Nó sẽ tự động thêm class "active" nếu chưa có, và xóa đi nếu đã có
+    navLinks.classList.toggle('active');
 }
 
 // Khởi tạo các tính năng khi trang web load xong
