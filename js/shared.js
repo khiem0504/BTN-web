@@ -9,9 +9,7 @@ function addToCart(name, price, qty = 1) {
     } else {
         cart.push({ name, price, qty });
     }
-
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+    localStorage.setItem("cart", JSON.stringify(cart));
     updateCartBadge();
 }
 
